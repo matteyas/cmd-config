@@ -1,0 +1,34 @@
+list_macros=type %aliaspath%\macros.txt
+lm=type %aliaspath%\macros.txt
+listmacros=type %aliaspath%\macros.txt
+
+st=sublime_text $*
+sb=sublime_text $*
+
+xx=echo %cd%>%aliaspath%\last_dir.txt && exit
+x=exit
+rmd=rmdir $*
+rm=del $*
+ls=dir $*
+xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
+get=copy $* %aliaspath%
+home=set back_dir=%cd% && cd /d %aliaspath%
+back=cd /d %back_dir%
+mark=set mark_dir_$1=%cd% && set mark_dir_>%aliaspath%\marks.txt
+jump=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
+j=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
+jj=set mark_dir_jumpback=%cd% && cd /d %mark_dir_jumpback%
+here=explorer %cd%
+up=cd..
+..=cd..
+...=cd.. & cd..
+....=cd.. & cd.. & cd..
+edit=notepad $*
+py=python $*
+
+dhcp=netsh interface ip set address name=%ethname% dhcp
+static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%
+staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %stdrtr%
+setip=set stdip=$*
+setmask=set stdmask=$*
+setrouter=set stdrtr=$*
