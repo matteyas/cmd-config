@@ -27,6 +27,9 @@ set ps=powershell.exe -nologo -noprofile -command
 doskey ps=%ps% $*
 doskey dl=if not "$1"=="" (if not "$2"=="" (%ps% "Invoke-WebRequest $1 -OutFile $2") else (%ps% "Invoke-WebRequest $1 -OutFile webdl.out")) else (echo Please provide at least 1 argument.)
 
+:: Set history size
+doskey /listsize=50
+
 :: Setup marked locations
 if exist %aliaspath%\marks.txt (
 	for /f "usebackq" %%i in ("%aliaspath%\marks.txt") do (set %%i)
