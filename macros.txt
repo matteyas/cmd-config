@@ -26,7 +26,11 @@ up=cd..
 ....=cd.. & cd.. & cd..
 edit=notepad $*
 py=python $*
+<<<<<<< HEAD
 gup=cd /d %aliaspath% & git commit -a -m "cmd update macro" & git pull & git push & cd /d %cd%
+=======
+gup=cd /d %aliaspath% & git commit -a -m "cmd update macro" & git push & cd /d %cd%
+>>>>>>> 1998618a348ec3385d7c2f6116e8e18633fd1166
 
 dhcp=netsh interface ip set address name=%ethname% dhcp
 static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%
