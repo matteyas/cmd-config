@@ -1,9 +1,0 @@
-mark_dir_=e:\Python\cn-crutch\src
-mark_dir_b=D:\Damage Control\Batch 
-mark_dir_crutch=e:\Python\cn-crutch
-mark_dir_j=e:\Julia
-mark_dir_jumpback=e:\Batch
-mark_dir_p=e:\Python
-mark_dir_sm=e:\Python\smaragd
-mark_dir_sms=e:\Python\smaragd\src
-mark_dir_smt=e:\Python\smaragd\tests
