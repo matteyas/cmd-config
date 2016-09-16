@@ -1,36 +1,52 @@
-list_macros=type %aliaspath%\macros.txt
+;= Macros related to handling macros
 lm=type %aliaspath%\macros.txt
+list_macros=type %aliaspath%\macros.txt
 listmacros=type %aliaspath%\macros.txt
 
 rlm=(echo RELOADING MACROS...) & doskey /MACROFILE=%aliaspath%\macros.txt
 
+;= Shortcuts for executables
 st=sublime_text $*
 sb=sublime_text $*
+ju=julia $*
+edit=notepad $*
+py=python $*
 
-xx=echo %cd%>%aliaspath%\last_dir.txt && exit
-x=exit
-rmd=rmdir $*
-rm=del $*
-ls=dir $*
-xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
-get=copy $* %aliaspath%
-home=set back_dir=%cd% && cd /d %aliaspath%
-back=cd /d %back_dir%
+;= Quick navigation
 mark=set mark_dir_$1=%cd% && set mark_dir_>%aliaspath%\marks.txt
 jump=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
 j=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
 jj=set mark_dir_jumpback=%cd% && cd /d %mark_dir_jumpback%
-ju=julia $*
+
+;= Navigation related to this script
+get=copy $* %aliaspath%
+home=set back_dir=%cd% && cd /d %aliaspath%
+back=cd /d %back_dir%
+
+;= CMD Convenience
 here=explorer %cd%
+
+ls=dir $*
+ll=dir /b $*
+
+rm=del $*
+rmd=rmdir $*
+
+x=exit
+xx=echo %cd%>%aliaspath%\last_dir.txt && exit
+
+xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
+
 up=cd..
 ..=cd..
 ...=cd.. & cd..
 ....=cd.. & cd.. & cd..
-edit=notepad $*
-py=python $*
+
+;= git
 gp=cd /d %aliaspath% & git pull & cd /d %cd%
 gup=cd /d %aliaspath% & git commit -a -m "cmd update macro" & git push & cd /d %cd%
 
+;= Network shortcuts
 dhcp=netsh interface ip set address name=%ethname% dhcp
 static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%
 staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %stdrtr%
