@@ -1,7 +1,7 @@
 @echo off
 
 :: Internal init
-set aliaspath=c:\cmdAliases
+set aliaspath=%1
 
 :: Setup commands
 doskey alias=notepad %aliaspath%\init.cmd

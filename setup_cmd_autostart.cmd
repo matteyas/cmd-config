@@ -1,17 +1,13 @@
 @echo off
-setlocal enableDelayedExpansion
+setlocal
 
->nul reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /f
->nul reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /d \"%cd%\init.cmd\"
-
-set c=0
-del init.tmp
-for /f "tokens=1* delims=]" %%A in ('type "init.cmd" ^| find /n /v ""') do (
-	set /a c+=1
-	if not !c! equ 1 (
-	if not !c! equ 5 (echo.%%B>>init.tmp) else (echo set aliaspath=%cd%>>init.tmp)
-	)
+if not "%cd: =%"=="%cd%" (
+	echo WARNING: It is strongly recommended to NOT have spaces in the path.
+	choice /m "Still use this path? (probably works)"
+	if errorlevel 2 (echo exiting... & exit /b) else (echo.)
 )
-if exist init.tmp (del init.cmd)
-ren init.tmp init.cmd
-@echo on
+
+2>nul >nul reg delete "HKCU\SOFTWARE\Microsoft\Command Processor" /v Autorun /f
+2>nul >nul reg add "HKCU\SOFTWARE\Microsoft\Command Processor" /v Autorun /d "\"%cd%\init.cmd\" \"%cd%\""
+
+if not errorlevel 1 (echo CMD Enviroment successfully setup.) else (echo Something went afuck.)
