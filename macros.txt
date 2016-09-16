@@ -18,6 +18,7 @@ mark=set mark_dir_$1=%cd% && set mark_dir_>%aliaspath%\marks.txt
 jump=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
 j=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
 jj=set mark_dir_jumpback=%cd% && cd /d %mark_dir_jumpback%
+ju=julia $*
 here=explorer %cd%
 up=cd..
 ..=cd..
@@ -25,6 +26,7 @@ up=cd..
 ....=cd.. & cd.. & cd..
 edit=notepad $*
 py=python $*
+gup=cd /d %aliaspath% & git commit -a -m "cmd update macro" & git push & cd /d %cd%
 
 dhcp=netsh interface ip set address name=%ethname% dhcp
 static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%

@@ -2,9 +2,9 @@
 setlocal
 
 if not "%cd: =%"=="%cd%" (
-	echo WARNING: It is strongly recommended to NOT have spaces in the path.
-	choice /m "Still use this path? (probably works)"
-	if errorlevel 2 (echo exiting... & exit /b) else (echo.)
+	echo Currently only paths without spaces is supported because batch is amazing.
+	echo exiting...
+	exit /b
 )
 
 2>nul >nul reg delete "HKCU\SOFTWARE\Microsoft\Command Processor" /v Autorun /f
