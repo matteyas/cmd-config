@@ -42,7 +42,7 @@ up=cd..
 ...=cd.. & cd..
 ....=cd.. & cd.. & cd..
 
-;= git (for maintaining cmd-config)
+;= git (cmd-config maintenance)
 gp=cd /d %aliaspath% & git pull & cd /d %cd%
 gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%
 
