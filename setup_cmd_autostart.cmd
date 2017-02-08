@@ -13,12 +13,6 @@ echo:
 echo::: Internal init
 echo:set aliaspath=%cd%
 echo:
-echo::: Setup commands
-echo:doskey alias=notepad %%aliaspath%%\init.cmd
-echo:doskey setup=notepad %%aliaspath%%\init.cmd
-echo:doskey macro=notepad %%aliaspath%%\macros.txt
-echo:doskey macros=notepad %%aliaspath%%\macros.txt
-echo:
 echo::: Setup prompt
 echo:set PROMPT=$P$_# 
 echo:
@@ -30,8 +24,9 @@ echo:set stdip=192.168.10.123
 echo:set stdrtr=192.168.10.1
 echo:set stdmask=255.255.255.0
 echo:
-echo::: Aliases
-echo:doskey /MACROFILE=%%aliaspath%%\macros.txt
+echo::: Macros
+echo:if exist %%aliaspath%%\macros.txt (doskey /MACROFILE=%%aliaspath%%\macros.txt^)
+echo:if exist %%aliaspath%%\private_macros.txt (doskey /MACROFILE=%%aliaspath%%\private_macros.txt^)
 echo:
 echo::: Powershell-based aliases
 echo:set ps=powershell.exe -nologo -noprofile -command

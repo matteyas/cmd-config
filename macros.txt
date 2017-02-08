@@ -1,9 +1,17 @@
+;= script commands
+alias=notepad %aliaspath%\init.cmd
+setup=notepad %aliaspath%\init.cmd
+macro=notepad %aliaspath%\macros.txt
+macros=notepad %aliaspath%\macros.txt
+private=notepad %aliaspath%\private_macros.txt
+pm=notepad %aliaspath%\private_macros.txt
+
 ;= macro commands
 list_macros=type %aliaspath%\macros.txt
 lm=type %aliaspath%\macros.txt
 listmacros=type %aliaspath%\macros.txt
 
-rlm=(echo RELOADING MACROS...) & doskey /MACROFILE=%aliaspath%\macros.txt & (echo done.)
+rlm=(echo RELOADING MACROS...) & (if exist %aliaspath%\macros.txt (doskey /MACROFILE=%aliaspath%\macros.txt)) & (if exist %aliaspath%\private_macros.txt (doskey /MACROFILE=%aliaspath%\private_macros.txt)) & (echo done.)
 
 ;= creates a raw access disk, for accessing e.g. an usb in virtual box
 vboxusb="%programfiles%\oracle\virtualbox\VBoxManage" internalcommands createrawvmdk -filename e:\usb.vmdk -rawdisk \\.\PhysicalDrive$1
@@ -71,8 +79,6 @@ gp=cd /d %aliaspath% & git pull & cd /d %cd%
 gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%
 
 ;= Computer convenience
-sleep="c:\Users\Matt\Desktop\Tools\Sleep after x seconds.lnk"
-bf="c:\Users\Matt\Desktop\Tools\bf1_affinity.bat"
 req=powercfg /requests
 reqs=powercfg /requests
 lastwake=powercfg /lastwake
