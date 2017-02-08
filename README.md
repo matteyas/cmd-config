@@ -81,5 +81,6 @@ e:\replace-text
 sb, st  - launches sublime_text[1], will create / open file if argument is supplied
 edit    - launches notepad, will create / open file if argument is supplied
 py      - alias for python, will use supplied arguments
+ju      - alias for julia, will use supplied arguments
 ```
 [1] Note that this assumes that sublime 3 is installed in the default path C:\Program Files\Sublime Text 3, or that it is otherwise available in the PATH variable. Use the command `setup` if you want to manually include another location in PATH.
