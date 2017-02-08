@@ -1,55 +1,63 @@
-;= Macros related to handling macros
-lm=type %aliaspath%\macros.txt
+;= macro commands
 list_macros=type %aliaspath%\macros.txt
+lm=type %aliaspath%\macros.txt
 listmacros=type %aliaspath%\macros.txt
 
-rlm=(echo RELOADING MACROS...) & doskey /MACROFILE=%aliaspath%\macros.txt
+;= creates a raw access disk, for accessing e.g. an usb in virtual box
+vboxusb="%programfiles%\oracle\virtualbox\VBoxManage" internalcommands createrawvmdk -filename e:\usb.vmdk -rawdisk \\.\PhysicalDrive$1
 
-;= Shortcuts for executables
+;= sublime text
 st=sublime_text $*
 sb=sublime_text $*
-ju=julia $*
+
+;= time / benchmarking
+now=(echo:|date|find "current") $T (echo:|time|find "current")
+bench=(echo:|time|find "current") $T $* $T (echo:|time|find "current")
+
+;= commands to exit console
+xxx=del %aliaspath%\last_dir.txt & exit
+xx=echo %cd%>%aliaspath%\last_dir.txt & exit
+x=exit
+
+;= removing files / directories
+rmrf=rmdir /q /s $*
+rmd=rmdir /s $*
+rm=del $*
+
+;= usability commands
+ls=dir $*
+xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
+get=copy $* %aliaspath%
+home=set back_dir=%cd% & cd /d %aliaspath%
+back=cd /d %back_dir%
+
+;= marking directories / jumping to marked directories
+mark=set mark_dir_$1=%cd% & set mark_dir_>%aliaspath%\marks.txt
+jump=set mark_dir_jumpback=%cd% & cd /d %mark_dir_$1%
+j=set mark_dir_jumpback=%cd% & cd /d %mark_dir_$1%
+jj=set mark_dir_jumpback=%cd% & cd /d %mark_dir_jumpback%
+
+;= open explorer at current location
+here=explorer %cd%
+
+;= navigation
+up=cd..
+..=cd..
+...=cd..\..
+....=cd..\..\..
+.....=cd..\..\..\..
+......=cd..\..\..\..\..
+.......=cd..\..\..\..\..\..
+
+;= shortcuts
 edit=notepad $*
 py=python $*
 
-;= Quick navigation
-mark=set mark_dir_$1=%cd% && set mark_dir_>%aliaspath%\marks.txt
-jump=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
-j=set mark_dir_jumpback=%cd% && cd /d %mark_dir_$1%
-jj=set mark_dir_jumpback=%cd% && cd /d %mark_dir_jumpback%
-
-;= Navigation related to this script
-get=copy $* %aliaspath%
-home=set back_dir=%cd% && cd /d %aliaspath%
-back=cd /d %back_dir%
-
-;= CMD Convenience
-here=explorer %cd%
-
-ls=dir $*
-ll=dir /b $*
-
-rm=del $*
-rmd=rmdir $*
-
-x=exit
-xx=echo %cd%>%aliaspath%\last_dir.txt && exit
-
-xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
-
-up=cd..
-..=cd..
-...=cd.. & cd..
-....=cd.. & cd.. & cd..
-
-;= git (cmd-config maintenance)
-gp=cd /d %aliaspath% & git pull & cd /d %cd%
-gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%
-
-;= Network shortcuts
+;= network commands
 dhcp=netsh interface ip set address name=%ethname% dhcp
 static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%
 staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %stdrtr%
 setip=set stdip=$*
 setmask=set stdmask=$*
 setrouter=set stdrtr=$*
+ip=ipconfig | find "IPv4"

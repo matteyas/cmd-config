@@ -1,10 +1,11 @@
 @echo off
 
 :: Internal init
-set aliaspath=%~1
+set aliaspath=c:\cmdAliases
 
 :: Setup commands
 doskey alias=notepad %aliaspath%\init.cmd
+doskey setup=notepad %aliaspath%\init.cmd
 doskey macro=notepad %aliaspath%\macros.txt
 doskey macros=notepad %aliaspath%\macros.txt
 
@@ -27,22 +28,18 @@ set ps=powershell.exe -nologo -noprofile -command
 doskey ps=%ps% $*
 doskey dl=if not "$1"=="" (if not "$2"=="" (%ps% "Invoke-WebRequest $1 -OutFile $2") else (%ps% "Invoke-WebRequest $1 -OutFile webdl.out")) else (echo Please provide at least 1 argument.)
 
-:: Set history size
-doskey /listsize=50
-
 :: Setup marked locations
 if exist %aliaspath%\marks.txt (
 	for /f "usebackq" %%i in ("%aliaspath%\marks.txt") do (set %%i)
 )
 
-:: Return to previous directory
+:: Return to previous directory (obnoxious implementation due to previously auto-deleting the last_dir.txt file)
 if exist %aliaspath%\last_dir.txt (
 	set /p last_dir=<%aliaspath%\last_dir.txt
 )
 
 if defined last_dir (
 	cd /d %last_dir%
-	del %aliaspath%\last_dir.txt
 )
 
 @echo on
