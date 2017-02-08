@@ -2,6 +2,8 @@
 This is a configuration that will setup a reasonable command line environment. It has two main parts: init.cmd and macros.txt
 
 ## init.cmd
+Note: init.cmd is created by `setup_cmd_autostart.cmd`, to look at a sample script, navigate to sample\init.cmd
+
 This script will run whenever a cmd.exe shell is executed. It runs the initial setups of macros and variables for each shell. It uses a specific registry entry (HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun) to autorun on each shell.
 
 Disclaimer: Note that one of the features in cmd-config is that each new shell can return to the last path that it was closed on (using `xx` to close a shell will make new shells return to the previous path). This *will* change the behavior of any batch file you launch from Windows, since they will start a new shell before running, thus running in a potentially unexpected path. If one of your scripts fails, use `xxx` to disable the "return to last path" feature.
