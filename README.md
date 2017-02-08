@@ -47,15 +47,17 @@ rm [args]   - alias for del [args]
 ### useful common commands
 ```
 ls          - alias for dir
-xc [args]   - issues xcopy /C /R /E /Y [args], generates logs for stderr and stdout
+xc [args]   - alias for xcopy /C /R /E /Y [args], generates logs for stderr and stdout
 get [file]  - copies [file] to the scripts home directory (clone directory)
 home, back  - jumps to script home directory (and back again)
 ```
 ### navigation
 ```
-.. - alias for cd..
-..., ...., etc will cd to lower paths, ... will go up two steps and .... will go up three steps (from e.g. c:\a\b\c to c:\)
-
+..  - alias for cd..
+... - alias for cd..\.. (e.g. navigate from c:\a\b to c:\)
+```
+There is support for moving further down the path with more dots, `....` will go down three steps and so on.
+```
 mark [name] creates a marked location called "name", from the current path
 j [name]    jumps to the previously marked location "name"
 jj          jumps back to previous directory after jumping
