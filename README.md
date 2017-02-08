@@ -1,5 +1,5 @@
 # HEJ PHIL
-`snorre` <-- man börjar med en sån back-tick-escaped fucker, nu kör jag line break här:
+`snorre` <-- man börjar med en sån back-tick-escaped fucker, nu kör jag line break här:  
 `apa` <-- en till back-tick-fucker. editorn säger att det här är line 3, förra line 2
 
 # cmd-config
