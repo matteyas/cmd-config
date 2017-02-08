@@ -11,9 +11,12 @@ Disclaimer: Note that one of the features in cmd-config is that each new shell c
 ## macros.txt
 Macro definitions are loaded (in init.cmd) from this file. Note that some macros will only work if running the shell as admin.
 
+## (private_macros.txt)
+This is an optional file that I personally use for macros that only work on this computer. You can edit this one by issuing a `pm` command in a shell.
+
 # Setup CMD Environment (macros etc.)
-1. clone into some path *without spaces*.
-2. start admin cmd.
+1. clone into some path *without spaces* (might be fixed in future versions)
+2. run cmd *as admin*
 3. cd into "clone_path\cmd-config"
 4. run setup_cmd_autostart.cmd
 5. start a new cmd.exe
@@ -23,16 +26,17 @@ Macro definitions are loaded (in init.cmd) from this file. Note that some macros
 ```
 elevate - runs an elevation script in the cmd-config home directory
 ```
-Note that this script *will kill* the current shell. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.
+Note that this script *will kill* the current shell, if it is not already elevated. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.
 ### looking at init script and macros
 ```
-setup / alias  - opens the init.cmd script in notepad
-macro / macros - opens macros.txt in notepad
+setup / alias   - opens the init.cmd script in notepad
+macro / macros  - opens macros.txt in notepad
+pm              - opens private_macros.txt in notepad
 ```
 ### list / reload macros
 ```
 lm  - prints out all the currently defined macros, with some exceptions (macros in init.cmd)
-rlm - reload macros from disk (run this after editing macros.txt)
+rlm - reload macros from disk (run this after editing macros.txt / private_macros.txt)
 ```
 `list_macros` and `listmacros` are synonyms for `lm`
 ### Time and benchmarking
