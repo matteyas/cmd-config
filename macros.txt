@@ -13,8 +13,8 @@ st=sublime_text $*
 sb=sublime_text $*
 
 ;= time / benchmarking
-now=(echo:|date|find "current") $T (echo:|time|find "current")
-bench=(echo:|time|find "current") $T $* $T (echo:|time|find "current")
+now=(echo:|date|find "current") & (echo:|time|find "current")
+bench=(echo:|time|find "current") & $* & (echo:|time|find "current")
 
 ;= commands to exit console
 xxx=del %aliaspath%\last_dir.txt & exit
