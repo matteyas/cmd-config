@@ -9,7 +9,7 @@ This script will run whenever a cmd.exe shell is executed. It runs the initial s
 Disclaimer: Note that one of the features in cmd-config is that each new shell can return to the last path that it was closed on (using `xx` to close a shell will make new shells return to the previous path). This *will* change the behavior of any batch file you launch from Windows, since they will start a new shell before running, thus running in a potentially unexpected path. If one of your scripts fails, use `xxx` to disable the "return to last path" feature.
 
 ## macros.txt
-Macro definitions are loaded (in init.cmd) from this file.
+Macro definitions are loaded (in init.cmd) from this file. Note that some macros will only work if running the shell as admin.
 
 # Setup CMD Environment (macros etc.)
 1. clone into some path *without spaces*.
@@ -53,6 +53,11 @@ ls          - alias for dir
 xc [args]   - alias for xcopy /C /R /E /Y [args], generates logs for stderr and stdout
 get [file]  - copies [file] to the scripts home directory (clone directory)
 home, back  - jumps to script home directory (and back again)
+```
+### less common though useful commands
+```
+req / reqs  - checks if there are any power requests (that are keeping the computer awake)
+lastwake    - report on the last cause for waking the computer
 ```
 ### navigation
 ```
