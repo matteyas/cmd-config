@@ -1,5 +1,6 @@
 @echo off
 
+
 :: Internal init
 set aliaspath=e:\git\cmd-config
 
