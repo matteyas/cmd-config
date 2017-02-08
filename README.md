@@ -19,6 +19,11 @@ Macro definitions are loaded (in init.cmd) from this file. Note that some macros
 5. start a new cmd.exe
 
 # Macro Usage
+### elevate prompt (run as admin)
+```
+elevate - runs an elevation script in the cmd-config home directory
+```
+Note that this script *will kill* the current shell. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.
 ### looking at init script and macros
 ```
 setup / alias  - opens the init.cmd script in notepad
