@@ -24,11 +24,12 @@ Macro definitions are loaded (in init.cmd) from this file.
 setup / alias  - opens the init.cmd script in notepad
 macro / macros - opens macros.txt in notepad
 ```
-### listing macros
+### list / reload macros
 ```
-lm - prints out all the currently defined macros, with some exceptions (macros in init.cmd)
-list_macros and listmacros are synonyms for lm
+lm  - prints out all the currently defined macros, with some exceptions (macros in init.cmd)
+rlm - reload macros from disk (run this after editing macros.txt)
 ```
+`list_macros` and `listmacros` are synonyms for `lm`
 ### Time and benchmarking
 ```
 now       - prints the current date and time
