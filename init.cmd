@@ -1,7 +1,7 @@
 @echo off
 
 :: Internal init
-set aliaspath=c:\cmdAliases
+set aliaspath=e:\git\cmd-config
 
 :: Setup commands
 doskey alias=notepad %aliaspath%\init.cmd
