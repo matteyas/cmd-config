@@ -46,9 +46,9 @@ rm [args]   - alias for del [args]
 ```
 ### useful common commands
 ```
-ls            - alias for dir
-xc [args]     - issues xcopy /C /R /E /Y [args] command with logging of errors and any file operations in separate log files
-get [file]    - copies [file] to the scripts home directory (clone directory)
+ls          - alias for dir
+xc [args]   - issues xcopy /C /R /E /Y [args], generates logs for stderr and stdout
+get [file]  - copies [file] to the scripts home directory (clone directory)
 home, back  - jumps to script home directory (and back again)
 ```
 ### navigation
