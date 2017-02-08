@@ -75,9 +75,9 @@ lastwake    - report on the last cause for waking the computer
 ```
 There is support for moving further down the path with more dots, `....` will go down three steps and so on.
 ```
-mark [name] creates a marked location called "name", from the current path
-j [name]    jumps to the previously marked location "name"
-jj          jumps back to previous directory after jumping
+mark [name] - creates a marked location called "name", from the current path
+j [name]    - jumps to the previously marked location "name"
+jj          - after jumping, this command jumps back to the prior directory before the jump
 ```
 Example, where b was created using mark b at e:\Batch:
 ```
