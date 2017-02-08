@@ -3,6 +3,8 @@ list_macros=type %aliaspath%\macros.txt
 lm=type %aliaspath%\macros.txt
 listmacros=type %aliaspath%\macros.txt
 
+rlm=(echo RELOADING MACROS...) & doskey /MACROFILE=%aliaspath%\macros.txt & (echo done.)
+
 ;= creates a raw access disk, for accessing e.g. an usb in virtual box
 vboxusb="%programfiles%\oracle\virtualbox\VBoxManage" internalcommands createrawvmdk -filename e:\usb.vmdk -rawdisk \\.\PhysicalDrive$1
 
@@ -26,6 +28,7 @@ rm=del $*
 
 ;= usability commands
 ls=dir $*
+ll=dir /b $*
 xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
 get=copy $* %aliaspath%
 home=set back_dir=%cd% & cd /d %aliaspath%
@@ -49,9 +52,10 @@ up=cd..
 ......=cd..\..\..\..\..
 .......=cd..\..\..\..\..\..
 
-;= shortcuts
+;= program shortcuts
 edit=notepad $*
 py=python $*
+ju=julia $*
 
 ;= network commands
 dhcp=netsh interface ip set address name=%ethname% dhcp
@@ -61,3 +65,7 @@ setip=set stdip=$*
 setmask=set stdmask=$*
 setrouter=set stdrtr=$*
 ip=ipconfig | find "IPv4"
+
+;= git (cmd-config maintenance)
+gp=cd /d %aliaspath% & git pull & cd /d %cd%
+gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%
