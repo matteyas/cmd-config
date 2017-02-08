@@ -1,7 +1,3 @@
-# HEJ PHIL
-`snorre` <-- man börjar med en sån back-tick-escaped fucker, nu kör jag line break här:  
-`apa` <-- en till back-tick-fucker. editorn säger att det här är line 3, förra line 2
-
 # cmd-config
 This is a configuration that will setup a reasonable command line environment. It has two main parts: init.cmd and macros.txt
 
