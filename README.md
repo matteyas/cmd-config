@@ -2,7 +2,7 @@
 This is a configuration that will setup a reasonable command line environment. It has two main parts: init.cmd and macros.txt
 
 ## init.cmd
-Note: init.cmd is created by `setup_cmd_autostart.cmd`, to look at a sample script, navigate to https://github.com/matteyas/gallery/blob/master/cmd-config/init.cmd
+Note: init.cmd is created by `setup_cmd_autostart.cmd`, to look at a sample script, navigate to [the cmd-config gallery](https://github.com/matteyas/gallery/blob/master/cmd-config/init.cmd)
 
 This script will run whenever a cmd.exe shell is executed. It runs the initial setups of macros and variables for each shell. It uses a specific registry entry (HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun) to autorun on each shell.
 
