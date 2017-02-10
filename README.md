@@ -80,7 +80,7 @@ mark [name] - creates a marked location called "name", from the current path
 j [name]    - jumps to the previously marked location "name"
 jj          - after jumping, this command jumps back to the prior directory before the jump
 ```
-Example, where b was created using mark b at e:\Batch:
+Example, where `b` was created using `mark b` at e:\Batch:
 ```
 e:\replace-text
 # j b
