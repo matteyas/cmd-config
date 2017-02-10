@@ -8,7 +8,7 @@ Here's a list of some of the features:
   2. `mark sys`
   3. `cd [somewhere else]`
   4. `j sys` → this will take you back to c:\windows\system32 that was marked previously
-  5. `jj` → this is a jump-back to the place you were before jumping, this can be used recursively
+  5. `jj` → this is a jump-back to the place you were before jumping. `jj` can be used recursively to jump back and forth.
 * Some bash inspiration that I personally find more useful than the standard cmd names:
   * `rmrf [dir]` -> removes a directory structure without prompts.
   * `rm [file/files]` -> removes files.
