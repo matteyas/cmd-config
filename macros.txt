@@ -35,6 +35,7 @@ rmd=rmdir /s $*
 rm=del $*
 
 ;= usability commands
+cdd=(md $*) & (cd /d $*)
 ls=dir $*
 ll=dir /b $*
 xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
