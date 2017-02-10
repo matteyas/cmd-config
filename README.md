@@ -108,6 +108,11 @@ e:\Batch
 e:\replace-text
 #
 ```
+It's possible to list all marked locations. They will show up as mark_dir_[name].
+```
+marks   - lists marked locations
+marked  - same as above
+```
 ### programs
 ```
 sb, st  - launches sublime_text[1], will create / open file if argument is supplied
