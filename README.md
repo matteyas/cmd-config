@@ -1,5 +1,21 @@
 # cmd-config
-This is a configuration that will setup a reasonable command line environment. It has two main parts: init.cmd and macros.txt
+This is a configuration that will setup a reasonable command line environment.
+
+Here's a list of some of the features:
+* `xx` -> closes the command prompt and remembers the path; the next command prompt will spawn at this location
+* Quick navigation between "favorite" folders that are remembered between cmd sessions
+  1. `cd c:\windows\system32`
+  2. `mark sys`
+  3. `cd [somewhere else]`
+  4. `j sys` → this will take you back to c:\windows\system32 that was marked previously
+  5. `jj` → this is a jump-back to the place you were before jumping, this can be used recursively
+* Some bash inspiration that I personally find more useful than the standard cmd names:
+  * `rmrf [dir]` -> removes a directory structure without prompts.
+  * `rm [file/files]` -> removes files.
+  * `ls` is an alias for `dir`.
+* And most importantly, easy customization. Just type `setup` to edit the script that autoruns at each prompt or `macros` to edit the doskey macros (which enable most of the implemented behavior).
+
+cmd-config has two main parts to accomplish its task: init.cmd and macros.txt
 
 ## init.cmd
 Note: init.cmd is created by `setup_cmd_autostart.cmd`, to look at a sample script, navigate to [the cmd-config gallery](https://github.com/matteyas/gallery/blob/master/cmd-config/init.cmd)
