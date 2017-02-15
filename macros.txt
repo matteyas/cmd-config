@@ -16,10 +16,6 @@ rlm=(echo RELOADING MACROS...) & (if exist %aliaspath%\macros.txt (doskey /MACRO
 ;= creates a raw access disk, for accessing e.g. an usb in virtual box
 vboxusb="%programfiles%\oracle\virtualbox\VBoxManage" internalcommands createrawvmdk -filename e:\usb.vmdk -rawdisk \\.\PhysicalDrive$1
 
-;= sublime text
-st=sublime_text $*
-sb=sublime_text $*
-
 ;= time / benchmarking
 now=(echo:|date|find "current") & (echo:|time|find "current")
 bench=(echo:|time|find "current") & $* & (echo:|time|find "current")
@@ -35,6 +31,7 @@ rmd=rmdir /s $*
 rm=del $*
 
 ;= usability commands
+dloop=function_loop.cmd $*
 cdd=(md $*) & (cd /d $*)
 ls=dir $*
 ll=dir /b $*
@@ -65,6 +62,8 @@ up=cd..
 edit=notepad $*
 py=python $*
 ju=julia $*
+st=sublime_text $*
+sb=sublime_text $*
 
 ;= network commands
 dhcp=netsh interface ip set address name=%ethname% dhcp
