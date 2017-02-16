@@ -175,7 +175,7 @@ marks.txt
 private_macros.txt
 ```
 #### `dloop`
-Makes use of "pipes and redirections" syntax.
+Makes use of [pipes and redirections](https://github.com/matteyas/cmd-config/blob/master/README.md#pipes-and-redirections-in-loops) syntax.
 ```dos
 E:\git\cmd-config
 # dloop * (dir %i -pipe- find /V "Volume" -/- find /V "(s)" -append- log.txt)
