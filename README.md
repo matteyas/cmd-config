@@ -55,13 +55,13 @@ elevate - runs an elevation script in the cmd-config functions directory
 WARNING: This script *will kill* the current shell, if it is not already elevated. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.
 ### simple looping
 ```
- loop [expr] [command]    - loop over the files in [path] and perform [command] on each entry (variable %i)
+ loop [expr] [command]    - loop over the files in [expr] and perform [command] on each entry (variable %i)
 dloop [expr] [command]    - same as loop, but over directories instead of files
 rloop [path] [expr] [cmd] - recursively walk [path] and perform "loop [expr] [cmd]" in each dir
 lloop [s] [ds] [e] [cmd]  - loop from [s] to [e] with stepsize [ds], perform [cmd] on each step
 floop [opts] [expr] [cmd] - FOR /F "[opts]" %i in ([expr]) do ([cmd])
 ```
-Loop examples are found near the end of this page.
+Loop examples are found near the end of this page. An unfortunate state of affairs regarding batch (what a surprise) is that macros only work in the local shell. Not even scripts launched in the local shell (with macros enabled) will have access to the macros. This may be worked around in later versions of cmd-config, if possible.
 #### Pipes and redirections in loops
 Special keywords enable piping and redirection in loops:
 ```
@@ -75,6 +75,9 @@ syntax    batch equivalent
 
 -out-     >
 -o-       >
+
+-and-     &
+-+-       &
 ```
 There are example use cases available below in the loop examples.
 ### looking at init script and macros
