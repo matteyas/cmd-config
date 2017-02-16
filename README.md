@@ -61,7 +61,7 @@ rloop [path] [expr] [cmd] - recursively walk [path] and perform "loop [expr] [cm
 lloop [s] [ds] [e] [cmd]  - loop from [s] to [e] with stepsize [ds], perform [cmd] on each step
 floop [opts] [expr] [cmd] - FOR /F "[opts]" %i in ([expr]) do ([cmd])
 ```
-Loop examples are found near the end of this page.
+Loop examples are found [near the end](https://github.com/matteyas/cmd-config/blob/master/README.md#loop-examples) of this page.
 
 *NOTE: An unfortunate state of affairs regarding batch (what a surprise) is that macros only work in the local shell. Not even scripts launched in the local shell (with macros enabled) will have access to the macros. This means that `loop *.txt notepad %i` will open all text files in the directory using notepad, but using the macro `edit` instead of `notepad` will not work.*
 
@@ -83,7 +83,7 @@ syntax    batch equivalent
 -and-     &
 -+-       &
 ```
-There are example use cases available below in the loop examples.
+There are [example use cases](https://github.com/matteyas/cmd-config/#pipes-and-redirections) available below in the loop examples.
 ### looking at init script and macros
 ```
 setup / alias   - opens the init.cmd script in notepad
