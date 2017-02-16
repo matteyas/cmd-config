@@ -13,12 +13,13 @@ echo:
 echo::: Internal init
 echo:set aliaspath=%cd%
 echo:set functionpath=%cd%\functions
+echo:set toolspath=%cd%\tools
 echo:
 echo::: Setup prompt
 echo:set PROMPT=$P$_# 
 echo:
 echo::: Vars
-echo:set PATH=%%path%%;C:\Program Files\Sublime Text 3;%%aliaspath%%;%%functionpath%%
+echo:set PATH=%%path%%;C:\Program Files\Sublime Text 3;%%aliaspath%%;%%functionpath%%;%%toolspath%%
 echo:
 echo:set ethname=ethernet_main
 echo:set stdip=192.168.10.123
