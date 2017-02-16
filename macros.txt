@@ -42,6 +42,10 @@ jump=set mark_dir_jumpback=%cd% & cd /d %mark_dir_$1%
 j=set mark_dir_jumpback=%cd% & cd /d %mark_dir_$1%
 jj=set mark_dir_jumpback=%cd% & cd /d %mark_dir_jumpback%
 
+;= list marked dirs
+marks=type %aliaspath%\marks.txt
+marked=type %aliaspath%\marks.txt
+
 ;= open explorer at current location
 here=explorer %cd%
 
