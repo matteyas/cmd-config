@@ -11,10 +11,7 @@ list_macros=type %aliaspath%\macros.txt
 lm=type %aliaspath%\macros.txt
 listmacros=type %aliaspath%\macros.txt
 
-rlm=(echo RELOADING MACROS...) & (if exist %aliaspath%\macros.txt (doskey /MACROFILE=%aliaspath%\macros.txt)) & (if exist %aliaspath%\private_macros.txt (doskey /MACROFILE=%aliaspath%\private_macros.txt)) & (echo done.)
-
-;= creates a raw access disk, for accessing e.g. an usb in virtual box
-vboxusb="%programfiles%\oracle\virtualbox\VBoxManage" internalcommands createrawvmdk -filename e:\usb.vmdk -rawdisk \\.\PhysicalDrive$1
+rlm=(echo RELOADING MACROS...) & (if exist %aliaspath%\macros.txt (echo loading global macros... & doskey /MACROFILE=%aliaspath%\macros.txt)) & (if exist %aliaspath%\private_macros.txt (echo loading private macros... & doskey /MACROFILE=%aliaspath%\private_macros.txt)) & (echo done.)
 
 ;= time / benchmarking
 now=(echo:|date|find "current") & (echo:|time|find "current")
@@ -31,7 +28,6 @@ rmd=rmdir /s $*
 rm=del $*
 
 ;= usability commands
-dloop=function_loop.cmd $*
 cdd=(md $*) & (cd /d $*)
 ls=dir $*
 ll=dir /b $*
@@ -57,6 +53,10 @@ up=cd..
 .....=cd..\..\..\..
 ......=cd..\..\..\..\..
 .......=cd..\..\..\..\..\..
+
+;= script wrappers
+loop=function_loop.cmd $*
+elevate=function_elevate.cmd
 
 ;= program shortcuts
 edit=notepad $*
