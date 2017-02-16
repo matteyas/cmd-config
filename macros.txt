@@ -29,6 +29,7 @@ rm=del $*
 
 ;= usability commands
 cdd=(md $*) & (cd /d $*)
+cp=copy $*
 ls=dir $*
 ll=dir /b $*
 xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
@@ -60,6 +61,10 @@ up=cd..
 
 ;= script wrappers
 loop=function_loop.cmd $*
+dloop=function_dloop.cmd $*
+floop=function_floop.cmd $*
+lloop=function_lloop.cmd $*
+rloop=function_rloop.cmd $*
 elevate=function_elevate.cmd
 
 ;= program shortcuts

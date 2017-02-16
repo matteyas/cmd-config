@@ -20,6 +20,16 @@ if defined temp (
 	goto :parse_arg
 )
 
+:: Handle pipes / redirections
+set arg=!arg:-a-=^>^>!
+set arg=!arg:-o-=^>!
+set arg=!arg:-append-=^>^>!
+set arg=!arg:-out-=^>!
+set arg=!arg:-/-=^|!
+set arg=!arg:-pipe-=^|!
+set arg=!arg:-and-=^&!
+set arg=!arg:-+-=^&!
+
 cmd /c (@echo off) & for %%i in (!loop_expr!) do (%arg%)
 
 @echo on
