@@ -25,7 +25,7 @@ Note: init.cmd is created by `setup_cmd_autostart.cmd`, to look at a sample scri
 
 This script will run whenever a cmd.exe shell is executed. It runs the initial setups of macros and variables for each shell. It uses a specific registry entry (HKEY_CURRENT_USER\Software\Microsoft\Command Processor\AutoRun) to autorun on each shell.
 
-HINT: Note that one of the features in cmd-config is that each new shell can return to the last path that it was closed on (using `xx` to close a shell will make new shells return to the previous path). This *will* change the behavior of any batch file you launch from Windows, since they will start a new shell before running, thus running in a potentially unexpected path. If one of your scripts fails, use `xxx` to disable the "return to last path" feature.
+*HINT: Note that one of the features in cmd-config is that each new shell can return to the last path that it was closed on (using `xx` to close a shell will make new shells return to the previous path). This *will* change the behavior of any batch file you launch from Windows, since they will start a new shell before running, thus running in a potentially unexpected path. If one of your scripts fails, use `xxx` to disable the "return to last path" feature.*
 
 ## macros.txt
 Macro definitions are loaded (in init.cmd) from this file. Note that some macros will only work if running the shell as admin.
@@ -38,7 +38,7 @@ The "functions" path contains batch scripts for implementing some usability feat
 
 The "tools" path is for enabling useful features with the help of outside programs.
 
-NOTE: Both the "functions" and "tools" path, just like the cmd-config path, will be in the PATH environment variable. Any tool / function in these paths can thus be used in a shell. Also note that the global user / system PATH variable is not changed; the variable is updated locally in each shell.
+*NOTE: Both the "functions" and "tools" path, just like the cmd-config path, will be in the PATH environment variable. Any tool / function in these paths can thus be used in a shell. Also note that the global user / system PATH variable is not changed; the variable is updated locally in each shell.*
 
 # Setup CMD Environment (macros etc.)
 1. clone into some path **without spaces** (might be fixed in future versions)
@@ -52,7 +52,7 @@ NOTE: Both the "functions" and "tools" path, just like the cmd-config path, will
 ```
 elevate - runs an elevation script in the cmd-config functions directory
 ```
-WARNING: This script *will kill* the current shell, if it is not already elevated. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.
+**WARNING: This script *will kill* the current shell, if it is not already elevated. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.**
 ### simple looping
 ```
  loop [expr] [command]    - loop over the files in [expr] and perform [command] on each entry (variable %i)
@@ -61,7 +61,11 @@ rloop [path] [expr] [cmd] - recursively walk [path] and perform "loop [expr] [cm
 lloop [s] [ds] [e] [cmd]  - loop from [s] to [e] with stepsize [ds], perform [cmd] on each step
 floop [opts] [expr] [cmd] - FOR /F "[opts]" %i in ([expr]) do ([cmd])
 ```
-Loop examples are found near the end of this page. An unfortunate state of affairs regarding batch (what a surprise) is that macros only work in the local shell. Not even scripts launched in the local shell (with macros enabled) will have access to the macros. This may be worked around in later versions of cmd-config, if possible.
+Loop examples are found near the end of this page.
+
+*NOTE: An unfortunate state of affairs regarding batch (what a surprise) is that macros only work in the local shell. Not even scripts launched in the local shell (with macros enabled) will have access to the macros. This means that `loop *.txt notepad %i` will open all text files in the directory using notepad, but using the macro `edit` instead of `notepad` will not work.*
+
+*This may be worked around in later versions of cmd-config.*
 #### Pipes and redirections in loops
 Special keywords enable piping and redirection in loops:
 ```
@@ -157,7 +161,7 @@ edit    - launches notepad, will create / open file if argument is supplied
 py      - alias for python, will use supplied arguments
 ju      - alias for julia, will use supplied arguments
 ```
-[1] Note that this assumes that sublime 3 is installed in the default path C:\Program Files\Sublime Text 3, or that it is otherwise available in the PATH variable. Use the command `setup` if you want to manually include another location in PATH.
+*[1] Note that this assumes that sublime 3 is installed in the default path C:\Program Files\Sublime Text 3, or that it is otherwise available in the PATH variable. Use the command `setup` if you want to manually include another location in PATH.*
 
 ### Loop Examples
 #### `loop`
@@ -171,7 +175,7 @@ marks.txt
 private_macros.txt
 ```
 #### `dloop`
-To understand the `-pipe-`, `-/-` and `-append-` syntax, look below in "Pipes and redirects in loops"
+Makes use of "pipes and redirections" syntax.
 ```dos
 E:\git\cmd-config
 # dloop * (dir %i -pipe- find /V "Volume" -/- find /V "(s)" -append- log.txt)
@@ -202,10 +206,12 @@ E:\git\cmd-config
 # (echo:>_test1.txt) & (echo:>_test2.txt)
 
 E:\git\cmd-config
-# loop _*.txt echo This is file %i-o-%i
+# loop _*.txt echo processing %i... -+- echo This is file %i-out-%i
+processing _test1.txt...
+processing _test2.txt...
 
 E:\git\cmd-config
-# type _test1.txt & type _test2.txt
+# loop _*.txt type %i
 This is file _test1.txt
 This is file _test2.txt
 ```
