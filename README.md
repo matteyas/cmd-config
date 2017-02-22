@@ -3,7 +3,7 @@ This is a configuration that will setup a reasonable command line environment.
 
 DISCLAIMER: One change to the registry is required to enable the functionality (HKEY_CURRENT_USER\SOFTWARE \Microsoft\Command Processor\Autorun), cmd-config is not portable in the strictest sense. This is the *only* system-wide footprint.
 
-Here's a list of some of the features:
+Here's a list of some of the features ([complete list below](https://github.com/matteyas/cmd-config/blob/master/README.md#macro-usage)):
 * `xx` -> closes the command prompt and remembers the path; the next command prompt will spawn at this location
 * Quick navigation between "favorite" folders that are remembered between cmd sessions
   1. `cd c:\windows\system32`
