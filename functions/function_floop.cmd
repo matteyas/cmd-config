@@ -5,7 +5,7 @@ set fail=
 set loop_options=%~1
 if not defined loop_options (set fail=1)
 shift
-set loop_expr=%1
+set loop_expr=%~1
 if not defined loop_expr (set fail=1)
 shift
 set arg=%1
@@ -32,6 +32,16 @@ set arg=!arg:-pipe-=^|!
 set arg=!arg:-and-=^&!
 set arg=!arg:-+-=^&!
 
-cmd /c (@echo off) & for /f "!loop_options!" %%i in (!loop_expr!) do (%arg%)
+:: pipes / redirs supported in loop expression as well
+set loop_expr=!loop_expr:-a-=^>^>!
+set loop_expr=!loop_expr:-o-=^>!
+set loop_expr=!loop_expr:-append-=^>^>!
+set loop_expr=!loop_expr:-out-=^>!
+set loop_expr=!loop_expr:-/-=^|!
+set loop_expr=!loop_expr:-pipe-=^|!
+set loop_expr=!loop_expr:-and-=^&!
+set loop_expr=!loop_expr:-+-=^&!
+
+cmd /c (@echo off) & for /f "%loop_options%" %%i in (!loop_expr!) do (%arg%)
 
 @echo on
