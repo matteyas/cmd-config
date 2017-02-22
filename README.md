@@ -52,7 +52,7 @@ The "tools" path is for enabling useful features with the help of outside progra
 ```
 elevate - runs an elevation script in the cmd-config functions directory
 ```
-**WARNING: This script *will kill* the current shell, if it is not already elevated. It will also produce a UAC dialog, and only if you press "Yes" will a new, elevated shell launch.**
+NOTE: If elevation is successful (pressing yes on the UAC prompt), the previous non-elevated shell will be closed and the elevated one will remain.
 ### simple looping
 ```
  loop [expr] [command]    - loop over the files in [expr] and perform [command] on each entry (variable %i)
