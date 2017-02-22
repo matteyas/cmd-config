@@ -49,9 +49,9 @@ The "tools" path is for enabling useful features with the help of outside progra
 5. start a new cmd.exe
 
 # Macro Usage
-### elevate prompt (run as admin)
+### elevate shell (run as admin)
 ```
-elevate - runs an elevation script in the cmd-config functions directory
+elevate - runs an elevation script that spawns a shell running as admin
 ```
 NOTE: If elevation is successful (pressing yes on the UAC prompt), the previous non-elevated shell will be closed and the elevated one will remain.
 ### simple looping
