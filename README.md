@@ -199,6 +199,35 @@ E:\git\cmd-config
 2016-06-27  14:11           167 936 unzip.exe
 2016-12-20  12:32           356 864 zip.exe
 ```
+#### `lloop`
+```
+e:\git\cmd-config
+# lloop 1 1 3 (echo:-pipe-time)
+The current time is: 10:20:23,53
+Enter the new time:
+The current time is: 10:20:23,56
+Enter the new time:
+The current time is: 10:20:23,59
+Enter the new time:
+
+e:\git\cmd-config
+# lloop 1 2 9 echo %i
+1
+3
+5
+7
+9
+```
+#### `floop`
+```
+e:\git\cmd-config
+# floop "usebackq delims=" "`tasklist -pipe- find "cmd"`" echo %i
+hkcmd.exe                     6500 Console                    1        364 K
+cmd.exe                       9356 Console                    1      1 324 K
+cmd.exe                      17036 Console                    1      4 024 K
+cmd.exe                      17360 Console                    1      3 508 K
+```
+Note that the first two expressions, options and the expression looped over, are enclosed in "" since they contain spaces. The last block—the do-block, or cmd-block—cannot be enclosed in "".
 #### Pipes and redirections
 Examples:
 ```dos
