@@ -116,6 +116,7 @@ rm [args]   - alias for del [args]
 ### useful common commands
 ```
 cdd         - creates the directory and then cd's into it (cdd a\b\c\d will create the entire path)
+cp          - alias for copy
 ls          - alias for dir
 xc [args]   - alias for xcopy /C /R /E /Y [args], generates logs for stderr and stdout
 get [file]  - copies [file] to the scripts home directory (clone directory)
