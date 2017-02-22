@@ -15,6 +15,7 @@ Here's a list of some of the features ([complete list below](https://github.com/
   * `rmrf [dir]` -> removes a directory structure without prompts.
   * `rm [file/files]` -> removes files.
   * `ls` is an alias for `dir`.
+  * `cp` is an alias for `copy`.
 * Changes the prompt from "path\> " to "path{newline}# ". This may take some time to get used to, but it is a sane change. The input will always be at the same place in relation to the path!
 * And most importantly, easy customization. Just type `setup` to edit the script that autoruns at each prompt or `macros` to edit the doskey macros (which enable most of the implemented behavior).
 
