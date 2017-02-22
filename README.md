@@ -1,5 +1,5 @@
 # cmd-config
-This is a configuration that will setup a reasonable command line environment.
+An automated configuration tool that will setup a reasonable command line environment in Windows.
 
 DISCLAIMER: One change to the registry is required to enable the functionality (HKEY_CURRENT_USER\SOFTWARE \Microsoft\Command Processor\Autorun), cmd-config is not portable in the strictest sense. This is the *only* system-wide footprint.
 
