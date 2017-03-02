@@ -3,6 +3,7 @@ alias=notepad %aliaspath%\init.cmd
 setup=notepad %aliaspath%\init.cmd
 macro=notepad %aliaspath%\macros.txt
 macros=notepad %aliaspath%\macros.txt
+em=notepad %aliaspath%\macros.txt
 private=notepad %aliaspath%\private_macros.txt
 pm=notepad %aliaspath%\private_macros.txt
 
@@ -68,6 +69,19 @@ lloop=function_lloop.cmd $*
 rloop=function_rloop.cmd $*
 elevate=function_elevate.cmd
 
+;= power management
+advboot=function_shutdown.cmd adv $*
+bios=function_shutdown.cmd uefi $*
+uefi=function_shutdown.cmd uefi $*
+reboot=function_shutdown.cmd reboot $*
+off=function_shutdown.cmd off $*
+hib=function_shutdown.cmd hib $*
+sleep=function_shutdown.cmd zzz $*
+zzz=function_shutdown.cmd zzz $*
+abort=function_shutdown.cmd abort $*
+dontshutdown=function_shutdown.cmd abort $*
+keepon=function_shutdown.cmd abort $*
+
 ;= program shortcuts
 edit=notepad $*
 py=python $*
@@ -92,3 +106,4 @@ gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command
 req=powercfg /requests
 reqs=powercfg /requests
 lastwake=powercfg /lastwake
+lw=powercfg /lastwake

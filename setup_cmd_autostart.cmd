@@ -13,7 +13,8 @@ echo:
 echo::: Internal init
 echo:set aliaspath=%cd%
 echo:set functionpath=%cd%\functions
-echo:set toolspath=%cd%\tools
+echo:set toolpath=%cd%\tools
+echo:set logpath=%cd%\logs
 echo:
 echo::: Setup prompt
 echo:set PROMPT=$P$_# 
