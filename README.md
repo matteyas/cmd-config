@@ -114,18 +114,36 @@ rmrf [dir]  - removes directory tree at [dir] without prompts
 rmd [dir]   - removes directory tree at [dir] with prompts
 rm [args]   - alias for del [args]
 ```
-### useful common commands
+### computer management
 ```
+advboot - enter advanced (windows) boot menu and restart¹
+bios    - restart computer into BIOS / UEFI firmware¹ ²
+uefi    - same as bios¹
+reboot  - restart computer¹
+off     - shut down computer¹
+hib     - hibernate computer¹
+sleep   - put computer to sleep¹
+zzz     - same as sleep¹
+
+abort         - cancel any of the above commands, if remaining time > 0
+dontshutdown  - same as abort
+keepon        - same as abort
+
+req / reqs    - checks if there are any power requests (that are keeping the computer awake)
+lastwake / lw - report on the last cause for waking the computer
+```
+*¹ Supply an optional numerical argument to specify delay before command execution, the default value is 120 if no argument is given. To specify no delay, input one of the following arguments: now, none, 0. Also, with no delay, passing any second argument makes applications close forcibly (this is the default behavior, which cannot be changed, for delayed shutdown / reboot commands).  
+² BIOS / UEFI boot most likely only works if Windows was installed with UEFI enabled.*
+
+Note that all shutdown modes that can forcibly close programs will do so if necessary.
+### usability
+```
+here        - opens explorer in the current shell path
 cdd         - creates the directory and then cd's into it (cdd a\b\c\d will create the entire path)
 cp          - alias for copy
 ls          - alias for dir
 xc [args]   - alias for xcopy /C /R /E /Y [args], generates logs for stderr and stdout
 get [file]  - copies [file] to the scripts home directory (clone directory)
-```
-### less common though useful commands
-```
-req / reqs  - checks if there are any power requests (that are keeping the computer awake)
-lastwake    - report on the last cause for waking the computer
 ```
 ### navigation
 ```
@@ -153,19 +171,25 @@ e:\Batch
 e:\replace-text
 #
 ```
-It's possible to list all marked locations. They will show up as mark_dir_[name].
+It's possible to list all marked locations. They will show up as mark_dir\_*[name]* (the `b` used above will show up as `mark_dir_b` for example).
 ```
 marks   - lists marked locations
 marked  - same as above
 ```
 ### programs
 ```
-sb, st  - launches sublime_text[1], will create / open file if argument is supplied
+sb, st  - launches sublime_text¹, will create / open file if argument is supplied
 edit    - launches notepad, will create / open file if argument is supplied
 py      - alias for python, will use supplied arguments
 ju      - alias for julia, will use supplied arguments
 ```
-*[1] Note that this assumes that sublime 3 is installed in the default path C:\Program Files\Sublime Text 3, or that it is otherwise available in the PATH variable. Use the command `setup` if you want to manually include another location in PATH.*
+*¹ Note that this assumes that sublime 3 is installed in the default path C:\Program Files\Sublime Text 3, or that it is otherwise available in the PATH variable. Use the command `setup` if you want to manually include another location in PATH.*
+
+### git
+```
+gp  - pull cmd-config updates from git
+gup - commit + push cmd-config updates
+```
 
 ### Loop Examples
 #### `loop`
