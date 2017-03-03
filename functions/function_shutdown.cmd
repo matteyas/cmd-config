@@ -43,7 +43,7 @@ if "!_mode!"=="adv"    (set cmd=shutdown /r /o%_force% /_time !_time! /c " "
 if "!_mode!"=="uefi"   (set cmd=shutdown /r /fw%_force% /_time !_time! /c " "
                        set msg=Entering BIOS / UEFI after restart, )
 
-if "!_mode!"=="zzz"    (set cmd=cscript //nologo %toolspath%\start_invisible.vbs %toolpath%\cmd-config-sleep.exe !_time!
+if "!_mode!"=="zzz"    (set cmd=cscript //nologo %toolpath%\start_invisible.vbs %toolpath%\cmd-config-sleep.exe !_time!
                        set msg=Sleep)
 
 :: note that in abort _mode, cmd=exit /b simply cancels the last echo; prior power requests will be removed as expected
