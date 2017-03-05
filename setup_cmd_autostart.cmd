@@ -3,8 +3,10 @@ setlocal enableDelayedExpansion
 
 cd /d %~dp0
 
->nul reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /f
->nul reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /d \"%cd%\init.cmd\"
+(
+reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /f
+reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /d \"%cd%\init.cmd\"
+) >nul 2>nul
 
 mkdir logs
 
