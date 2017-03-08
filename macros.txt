@@ -68,6 +68,7 @@ floop=function_floop.cmd $*
 lloop=function_lloop.cmd $*
 rloop=function_rloop.cmd $*
 elevate=function_elevate.cmd
+status=function_check_elevation.cmd
 
 ;= power management
 advboot=function_shutdown.cmd adv $*

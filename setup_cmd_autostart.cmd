@@ -6,9 +6,8 @@ cd /d %~dp0
 (
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor" /v Autorun /d \"%cd%\init.cmd\"
-) >nul 2>nul
-
 mkdir logs
+) >nul 2>nul
 
 :: Generate init.cmd
 (
