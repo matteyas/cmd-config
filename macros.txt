@@ -37,10 +37,10 @@ xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
 get=copy $* %aliaspath%
 
 ;= marking directories / jumping to marked directories
-mark=set mark_dir_$1=%cd% & set mark_dir_>%aliaspath%\marks.txt
-jump=set mark_dir_jumpback=%cd% & cd /d %mark_dir_$1%
-j=set mark_dir_jumpback=%cd% & cd /d %mark_dir_$1%
-jj=set mark_dir_jumpback=%cd% & cd /d %mark_dir_jumpback%
+mark=set "mark_dir_$1=%cd%" & set mark_dir_>%aliaspath%\marks.txt
+jump=set "mark_dir_jumpback=%cd%" & cd /d "%mark_dir_$1%"
+j=set "mark_dir_jumpback=%cd%" & cd /d "%mark_dir_$1%"
+jj=set "mark_dir_jumpback=%cd%" & cd /d "%mark_dir_jumpback%"
 
 home=set back_dir=%cd% & cd /d %aliaspath%
 back=cd /d %back_dir%
@@ -87,6 +87,8 @@ keepon=function_shutdown.cmd abort $*
 edit=notepad $*
 py=python $*
 ju=julia $*
+ju7=c:\education\julia-0.7.0\bin\julia $*
+c=julia -E "$*"
 st=sublime_text $*
 sb=sublime_text $*
 

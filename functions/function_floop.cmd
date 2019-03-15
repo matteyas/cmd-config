@@ -12,7 +12,7 @@ set arg=%1
 if not defined arg (set fail=1)
 
 if defined fail (
-	echo ERROR, this command takes at least two arguments, file-pattern and command to execute
+	echo ERROR, this command takes at least three arguments, loop-options, file-pattern and command to execute
 	exit /b
 )
 :parse_arg
