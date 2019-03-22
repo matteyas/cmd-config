@@ -262,15 +262,21 @@ Examples:
 E:\git\cmd-config
 # (echo:>_test1.txt) & (echo:>_test2.txt)
 
+:: note that the -out-%i in the following command is the same as >%i
 E:\git\cmd-config
-# loop _*.txt echo processing %i... -+- echo This is file %i-out-%i
+# loop _*.txt echo processing %i... -+- echo This is the contents of file %i -out-%i
 processing _test1.txt...
 processing _test2.txt...
 
 E:\git\cmd-config
-# loop _*.txt type %i
-This is file _test1.txt
-This is file _test2.txt
+# loop _*.txt echo contents of %i^: -+- echo.¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ -+- type %i -+- echo.
+contents of _test1.txt:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+This is the contents of file _test1.txt
+
+contents of _test2.txt:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+This is the contents of file _test2.txt
 ```
 ```dos
 E:\git\cmd-config
