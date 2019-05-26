@@ -29,7 +29,8 @@ rmd=rmdir /s $*
 rm=del $*
 
 ;= usability commands
-cdd=(md $*) & (cd /d $*)
+cdd=cd /d $*
+cdm=(md $*) & (cd /d $*)
 cp=copy $*
 ls=dir $*
 ll=dir /b $*
@@ -60,6 +61,9 @@ up=cd..
 .....=cd..\..\..\..
 ......=cd..\..\..\..\..
 .......=cd..\..\..\..\..\..
+
+;= processes
+pkill=taskkill /f /im $*
 
 ;= script wrappers
 loop=function_loop.cmd $*
@@ -93,12 +97,14 @@ st=sublime_text $*
 sb=sublime_text $*
 
 ;= network commands
-dhcp=netsh interface ip set address name=%ethname% dhcp
-static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%
-staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %stdrtr%
 setip=set stdip=$*
 setmask=set stdmask=$*
 setrouter=set stdrtr=$*
+
+dhcp=netsh interface ip set address name=%ethname% dhcp
+static=netsh interface ip set address name=%ethname% static %stdip% %stdmask%
+staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %stdrtr%
+
 ip=ipconfig | find "IPv4"
 
 ;= git (cmd-config maintenance)

@@ -28,19 +28,19 @@ if not defined _time (set _time=120)
 :: note that%_force%is implied if !_time! > 0
 set msg=
 set cmd=
-if "!_mode!"=="off"    (set cmd=shutdown /hybrid /s%_force% /_time !_time! /c " "
+if "!_mode!"=="off"    (set cmd=shutdown /hybrid /s %_force% /time !_time! /c " "
                        set msg=Power off)
 
-if "!_mode!"=="hib"    (set cmd=shutdown /h%_force% /_time !_time! /c " "
+if "!_mode!"=="hib"    (set cmd=shutdown /h %_force% /time !_time! /c " "
                        set msg=Hibernate)
 
-if "!_mode!"=="reboot" (set cmd=shutdown /r%_force% /_time !_time! /c " "
+if "!_mode!"=="reboot" (set cmd=shutdown /r %_force% /time !_time! /c " "
                        set msg=Reboot)
 
-if "!_mode!"=="adv"    (set cmd=shutdown /r /o%_force% /_time !_time! /c " "
+if "!_mode!"=="adv"    (set cmd=shutdown /r /o %_force% /time !_time! /c " "
                        set msg=Entering advanced ^(windows^) boot menu and restarting)
 
-if "!_mode!"=="uefi"   (set cmd=shutdown /r /fw%_force% /_time !_time! /c " "
+if "!_mode!"=="uefi"   (set cmd=shutdown /r /fw %_force% /time !_time! /c " "
                        set msg=Entering BIOS / UEFI after restart, )
 
 if "!_mode!"=="zzz"    (set cmd=cscript //nologo %toolpath%\start_invisible.vbs %toolpath%\cmd-config-sleep.exe !_time!
