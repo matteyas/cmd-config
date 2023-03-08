@@ -116,3 +116,6 @@ req=powercfg /requests
 reqs=powercfg /requests
 lastwake=powercfg /lastwake
 lw=powercfg /lastwake
+
+screenon=powercfg /change monitor-timeout-ac 0
+screenoff=powercfg /change monitor-timeout-ac 15
