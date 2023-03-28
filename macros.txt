@@ -119,3 +119,6 @@ lw=powercfg /lastwake
 
 screenon=powercfg /change monitor-timeout-ac 0
 screenoff=powercfg /change monitor-timeout-ac 15
+
+;= night 1 = 80% night light, night 0 = 30% night light
+night=powershell -Command "& {$env:Path = '%PATH%'; . nightlight.ps1; nightlight -Enabled $*}"
