@@ -87,14 +87,8 @@ abort=function_shutdown.cmd abort $*
 dontshutdown=function_shutdown.cmd abort $*
 keepon=function_shutdown.cmd abort $*
 
-;= program shortcuts
+;= program shortcuts (add user local programs to private_macros.txt, access with pm command)
 edit=notepad $*
-py=python $*
-ju=julia $*
-ju7=c:\education\julia-0.7.0\bin\julia $*
-c=julia -E "$*"
-st=sublime_text $*
-sb=sublime_text $*
 
 ;= network commands
 setip=set stdip=$*
@@ -107,10 +101,6 @@ staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %
 
 ip=ipconfig | find "IPv4"
 
-;= git (cmd-config maintenance)
-gp=cd /d %aliaspath% & git pull & cd /d %cd%
-gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%
-
 ;= Computer convenience
 req=powercfg /requests
 reqs=powercfg /requests
@@ -119,8 +109,3 @@ lw=powercfg /lastwake
 
 screenon=powercfg /change monitor-timeout-ac 0
 screenoff=powercfg /change monitor-timeout-ac 15
-
-kut=schtasks /Create /XML d:\education\scripts\kill-utorrent.xml /TN "labbet\kill utorrent"
-
-;= night 1 = 80% night light, night 0 = 30% night light
-night=powershell -Command "& {$env:Path = '%PATH%'; . nightlight.ps1; nightlight -Enabled $*}"
