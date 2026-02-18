@@ -7,6 +7,9 @@ sb=D:\apps\sublime-text\sublime_text.exe $*
 ;= night 1 = 80% night light, night 0 = 30% night light
 night=powershell -Command "& {$env:Path = '%PATH%'; . nightlight.ps1; nightlight -State $*}"
 
+;= make sure process can't run (kill process forcibly, rename process to .bak, create +s +r empty file with process name
+boosh=powershell -ExecutionPolicy Bypass -Command "& {boosh.ps1 -PathToFile '$*'}"
+
 ;= git (cmd-config maintenance)
 gp=cd /d %aliaspath% & git pull & cd /d %cd%
 gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%

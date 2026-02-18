@@ -28,9 +28,6 @@ rmrf=rmdir /q /s $*
 rmd=rmdir /s $*
 rm=del $*
 
-;= make sure process can't run (kill process forcibly, rename process to .bak, create +s +r empty file with process name
-boosh=powershell -ExecutionPolicy Bypass -Command "& {boosh.ps1 -PathToFile '$*'}"
-
 ;= usability commands
 cdd=cd /d $*
 cdm=(md $*) & (cd /d $*)
