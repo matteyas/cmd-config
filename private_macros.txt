@@ -1,0 +1,72 @@
+;= PROGRAM SHORTCUTS
+py=python $*
+ju=julia $*
+c=julia -E "$*"
+sb=D:\apps\sublime-text\sublime_text.exe $*
+
+;= night 1 = 80% night light, night 0 = 30% night light
+night=powershell -Command "& {$env:Path = '%PATH%'; . nightlight.ps1; nightlight -State $*}"
+
+;= git (cmd-config maintenance)
+gp=cd /d %aliaspath% & git pull & cd /d %cd%
+gup=cd /d %aliaspath% & git commit -a -m "called update macro `gup` from command line" & git push & cd /d %cd%
+
+;= clear desktop icons
+clrdesk=del c:\users\public\desktop\*.* /q >nul 2>&1 & del c:\users\matte\desktop\*.* /q >nul 2>&1 & del c:\users\default\desktop\*.* /q >nul 2>&1
+cleandesk=del c:\users\public\desktop\*.* /q >nul 2>&1 & del c:\users\matte\desktop\*.* /q >nul 2>&1 & del c:\users\default\desktop\*.* /q >nul 2>&1
+desktop=del c:\users\public\desktop\*.* /q >nul 2>&1 & del c:\users\matte\desktop\*.* /q >nul 2>&1 & del c:\users\default\desktop\*.* /q >nul 2>&1
+
+;= reset taskbar x
+taskbar=taskkill /f /im taskbarx.exe & "C:\apps\taskbarx\TaskbarX.exe" -tbs=1 -color=0;0;0;0 -tpop=100 -tsop=100 -as=circeaseout -tbr=0 -obas=none -asp=50 -ptbo=0 -stbo=0 -cib=1 -lr=1200 -oblr=400 -sr=0 -sr2=0 -sr3=0 -cpo=1 -rzbt=1 -dtbsowm=1 -cfsa=1
+taskbarx=taskkill /f /im taskbarx.exe & "C:\apps\taskbarx\TaskbarX.exe" -tbs=1 -color=0;0;0;0 -tpop=100 -tsop=100 -as=circeaseout -tbr=0 -obas=none -asp=50 -ptbo=0 -stbo=0 -cib=1 -lr=1200 -oblr=400 -sr=0 -sr2=0 -sr3=0 -cpo=1 -rzbt=1 -dtbsowm=1 -cfsa=1 & exit
+
+;= run gäjmz
+val="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/892970
+valx="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/892970 & exit
+valheim="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/892970
+tm="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/2225070
+tmx="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/2225070 & exit
+trackmania="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/2225070
+hq="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/1000360
+hqx="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/1000360 & exit
+cc="D:\torrent-dls\Cube.Chaos\game\Cube Chaos.exe" & (timeout /t 3 >nul) & taskkill /f /im steam*
+dun="D:\education\minecraft-dungeons\Dungeons.exe"
+dunx="D:\education\minecraft-dungeons\Dungeons.exe" & exit
+doom="D:\education\doom2\gzdoom.exe" "D:\education\doom2\DOOM_Infinite_DEMO_0978_6.pk3"
+doomx="D:\education\doom2\gzdoom.exe" "D:\education\doom2\DOOM_Infinite_DEMO_0978_6.pk3" & exit
+tmod="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/1281930
+tmodx="c:\Program Files (x86)\Steam\steam.exe" steam://rungameid/1281930 & exit
+
+;= upx compression
+pack=upx --ultra-brute --no-lzma "$1"
+comp=upx --ultra-brute --no-lzma "$1"
+
+;= remove file on boot
+sdel=movefile $* ""
+latedel=movefile $* ""
+bootdel=movefile $* ""
+
+;= check open handles (find file/folder locks)
+who=handle64 $* -nobanner
+lock=handle64 $* -nobanner
+locked=handle64 $* -nobanner
+
+;= kill handle (dunno how it works, probably needs rewrite)
+exor=handle64 -c $1 -y -p $2 $3 -nobanner
+
+;= youtube-dl
+list=yt-dlp --no-continue -F $*
+fetch=yt-dlp --no-continue -f $*
+fetchu=yt-dlp --no-continue -o "%(title)s [%(id)s]-%(autonumber)s.%(ext)s" -f $*
+
+;= ffmpeg
+mp3=ffmpeg-mp3 $*
+reencode=change-audio-track.cmd $*
+mp3r=ffmpeg-mp3 $* & change-audio-track.cmd $*
+;= combine.cmd exists in PATH and will take a video and audio and combine them
+
+;= git
+clone=git clone $*
+
+;= file-server
+share=xcopy "$*" D:\share-http /C /R /H /Y
