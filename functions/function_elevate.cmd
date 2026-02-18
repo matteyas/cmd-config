@@ -3,6 +3,7 @@
 :init
  setlocal DisableDelayedExpansion
  set "batchPath=%~f0"
+ set "from=%cd%"
  for %%k in (%0) do set batchName=%%~nk
  set "vbsGetPrivileges=%temp%\OEgetPriv_%batchName%.vbs"
  set "elevation_grasped=%temp%\elevation_grasped.tmp"
@@ -27,7 +28,7 @@ if not exist %elevation_grasped% (
 
 :getPrivileges
   Echo Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
-  Echo UAC.ShellExecute "cmd", "/k echo:^>!is_elevated! ^& ""!batchPath!"" ^& cd /d %from ", "", "runas", 1 >> "%vbsGetPrivileges%"
+  Echo UAC.ShellExecute "cmd", "/k echo:^>!is_elevated! ^& ""!batchPath!"" ^& cd /d %from%", "", "runas", 1 >> "%vbsGetPrivileges%"
 
   start /wait "" cscript "%vbsGetPrivileges%"
   goto :finally

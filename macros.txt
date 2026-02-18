@@ -28,17 +28,25 @@ rmrf=rmdir /q /s $*
 rmd=rmdir /s $*
 rm=del $*
 
+;= make sure process can't run (kill process forcibly, rename process to .bak, create +s +r empty file with process name
+boosh=powershell -ExecutionPolicy Bypass -Command "& {boosh.ps1 -PathToFile '$*'}"
+
 ;= usability commands
 cdd=cd /d $*
 cdm=(md $*) & (cd /d $*)
+mkd=(md $*) & (cd /d $*)
+mdd=(md $*) & (cd /d $*)
 cp=copy $*
 ls=dir $*
 ll=dir /b $*
-xc=xcopy /C /R /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
+lsd=dir /A:D $*
+lsf=dir /A:-D $*
+xc=xcopy /C /R /H /E /Y $* 1>xcopy_file_log.txt 2>xcopy_error_log.txt
 get=copy $* %aliaspath%
+getfrom=copy $* "%cd%/"
 
 ;= marking directories / jumping to marked directories
-mark=set "mark_dir_$1=%cd%" & set mark_dir_>%aliaspath%\marks.txt
+mark=set "mark_dir_$1=%cd%" & set mark_dir_>%aliaspath%\marks.txt & echo:saved path
 jump=set "mark_dir_jumpback=%cd%" & cd /d "%mark_dir_$1%"
 j=set "mark_dir_jumpback=%cd%" & cd /d "%mark_dir_$1%"
 jj=set "mark_dir_jumpback=%cd%" & cd /d "%mark_dir_jumpback%"
@@ -64,6 +72,10 @@ up=cd..
 
 ;= processes
 pkill=taskkill /f /im $*
+fkill=taskkill /f /fi "IMAGENAME eq $*"
+qkill=taskkill /im $*
+ftask=tasklist | find /i "$*"
+fproc=tasklist | find /i "$*"
 
 ;= script wrappers
 loop=function_loop.cmd $*
@@ -82,6 +94,7 @@ reboot=function_shutdown.cmd reboot $*
 off=function_shutdown.cmd off $*
 hib=function_shutdown.cmd hib $*
 sleep=function_shutdown.cmd zzz $*
+sleepx=function_shutdown.cmd zzz $* & exit
 zzz=function_shutdown.cmd zzz $*
 abort=function_shutdown.cmd abort $*
 dontshutdown=function_shutdown.cmd abort $*
@@ -102,10 +115,17 @@ staticr=netsh interface ip set address name=%ethname% static %stdip% %stdmask% %
 ip=ipconfig | find "IPv4"
 
 ;= Computer convenience
+rexplorer=taskkill /f /im explorer.exe & explorer.exe
+rexplorerx=taskkill /f /im explorer.exe & explorer.exe & exit
+
+repair=dism /online /cleanup-image /restorehealth & sfc /scannow
+
 req=powercfg /requests
 reqs=powercfg /requests
 lastwake=powercfg /lastwake
 lw=powercfg /lastwake
+
+uptime=net statistics workstation | find "since"
 
 screenon=powercfg /change monitor-timeout-ac 0
 screenoff=powercfg /change monitor-timeout-ac 15

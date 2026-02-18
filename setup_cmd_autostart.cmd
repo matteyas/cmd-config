@@ -19,6 +19,9 @@ echo:set functionpath=%cd%\functions
 echo:set toolpath=%cd%\tools
 echo:set logpath=%cd%\logs
 echo:
+echo::: optional, WinShellTools (clone from https://github.com/matteyas/WinShellTools) (has to be subfolder in cmd-config)
+echo::: set winshellpath=%cd%\WinShellTools
+echo:
 echo::: Setup prompt
 echo:set PROMPT=$P$_# 
 echo:
@@ -29,6 +32,9 @@ echo:set ethname=ethernet_main
 echo:set stdip=192.168.10.123
 echo:set stdrtr=192.168.10.1
 echo:set stdmask=255.255.255.0
+echo:
+echo::: look for WinShellTools, add to path if available
+echo::: TODO
 echo:
 echo::: Macros
 echo:if exist %%aliaspath%%\macros.txt (doskey /MACROFILE=%%aliaspath%%\macros.txt^)
